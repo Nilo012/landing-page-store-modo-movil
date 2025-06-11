@@ -1,0 +1,696 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Lora:wght@500;600&family=Poppins:wght@400;500&display=swap");
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+  --header-height: 3.5rem;
+
+  /*========== Colors ==========*/
+  /*Color mode HSL(hue, saturation, lightness)*/
+  --first-color: hsl(19, 64%, 54%);
+  --first-color-alt: hsl(19, 64%, 52%);
+  --title-color: hsl(19, 16%, 15%);
+  --text-color: hsl(19, 16%, 35%);
+  --text-color-light: hsl(19, 8%, 55%);
+  --body-color: hsl(19, 100%, 96%);
+  --container-color: hsl(19, 100%, 97%);
+
+  --primary-100: hsl(180, 76%, 23%); /* #0D6E6E */
+  --primary-200: hsl(180, 36%, 45%); /* #4a9d9c */
+  --primary-300: hsl(180, 100%, 87%); /* #afffff */
+
+  --accent-100: hsl(0, 100%, 61%); /* #FF3D3D */
+  --accent-200: hsl(30, 100%, 88%); /* #ffe0c8 */
+
+  --text-100: hsl(0, 0%, 100%); /* #FFFFFF */
+  --text-200: hsl(0, 0%, 88%); /* #e0e0e0 */
+
+  --bg-100: hsl(205, 52%, 12%); /* #0D1F2D */
+  --bg-200: hsl(205, 35%, 18%); /* #1d2e3d */
+  --bg-300: hsl(210, 23%, 28%); /* #354656 */
+
+  --primary-100: hsl(180, 76%, 83%); /* tono claro de #0D6E6E */
+  --primary-200: hsl(180, 36%, 65%); /* tono claro de #4a9d9c */
+  --primary-300: hsl(180, 100%, 35%); /* tono más visible de #afffff */
+
+  --accent-100: hsl(0, 100%, 71%); /* rojo más suave */
+  --accent-200: hsl(30, 100%, 96%); /* beige aún más claro */
+
+  --text-100: hsl(205, 30%, 15%); /* texto oscuro para contraste */
+  --text-200: hsl(205, 15%, 35%); /* texto secundario gris azulado */
+
+  --bg-100: hsl(210, 36%, 96%); /* fondo general claro */
+  --bg-200: hsl(210, 36%, 98%); /* fondo de contenedor aún más claro */
+  --bg-300: hsl(210, 30%, 88%); /* fondo alternativo suave */
+
+  --first-color: hsl(30, 30%, 35%); /* Marrón cuero */
+  --first-color-alt: hsl(30, 30%, 30%); /* Marrón oscuro */
+  --title-color: hsl(210, 10%, 15%); /* Azul grisáceo oscuro para títulos */
+  --text-color: hsl(210, 10%, 30%); /* Gris azulado para texto */
+  --text-color-light: hsl(210, 5%, 50%); /* Gris suave */
+  --body-color: hsl(42, 30%, 95%); /* Beige muy claro para fondo */
+  --container-color: hsl(42, 30%, 98%); /* Aún más claro para contenedores */
+
+  --first-color: hsl(30, 80%, 55%); /* Marrón cuero más cálido y vivo */
+  --first-color-alt: hsl(
+    30,
+    70%,
+    45%
+  ); /* Variante más oscura pero aún visible */
+
+  /*========== Font and typography ==========*/
+  /*.5rem = 8px | 1rem = 16px ...*/
+  --body-font: "Poppins", sans-serif;
+  --title-font: "Lora", serif;
+  --subtitle-font: "Dancing Script", cursive;
+  --biggest-font-size: 2.25rem;
+  --h1-font-size: 1.5rem;
+  --h2-font-size: 1.25rem;
+  --h3-font-size: 1rem;
+  --normal-font-size: 0.938rem;
+  --small-font-size: 0.813rem;
+  --smaller-font-size: 0.75rem;
+
+  /*========== Font weight ==========*/
+  --font-medium: 500;
+  --font-semi-bold: 600;
+
+  /*========== z index ==========*/
+  --z-tooltip: 10;
+  --z-fixed: 100;
+}
+@media screen and (min-width: 1024px) {
+  :root {
+    --biggest-font-size: 4rem;
+    --h1-font-size: 2.25rem;
+    --h2-font-size: 1.5rem;
+    --h3-font-size: 1.25rem;
+    --normal-font-size: 1rem;
+    --small-font-size: 0.875rem;
+    --smaller-font-size: 0.813rem;
+  }
+}
+
+/*=============== BASE ===============*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* font-size: 62.5%; */
+}
+
+body {
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  background-color: var(--body-color);
+  color: var(--text-color);
+  transition: background 0.4s; /* for dark mode animation */
+}
+
+h1,
+h2,
+h3 {
+  color: var(--title-color);
+  font-weight: var(--font-medium);
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/*=============== THEME ===============*/
+
+/*========== Variables Dark theme ==========*/
+
+/*========== 
+    Color changes in some parts of 
+    the website, in light theme
+==========*/
+
+/*=============== REUSABLE CSS CLASSES ===============*/
+.container {
+  max-width: 1024px;
+  margin-inline: 1.5rem;
+}
+
+.grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.section {
+  padding-block: 5rem 1rem;
+}
+
+.section__title {
+  font-size: var(--h1-font-size);
+  font-family: var(--title-font);
+  margin-bottom: 1.5rem;
+}
+
+.section__subtitle {
+  display: block;
+  font-size: var(--h1-font-size);
+  font-family: var(--subtitle-font);
+  color: var(--first-color);
+  margin-bottom: 0.5rem;
+}
+
+.section__title,
+.section__subtitle {
+  text-align: center;
+}
+
+.main {
+  overflow: hidden; /* For animation ScrollReveal */
+}
+
+/*=============== HEADER & NAV ===============*/
+.header {
+  position: fixed;
+  width: 100%;
+  background-color: var(--body-color);
+  top: 0;
+  left: 0;
+  z-index: var(--z-fixed);
+  transition: box-shadow 0.3s, background 0.4s;
+}
+.nav {
+  position: relative;
+  height: var(--header-height);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav__logo,
+.nav__toggle,
+.nav__close {
+  display: flex;
+  color: var(--title-color);
+}
+.nav__logo {
+  align-items: center;
+  column-gap: 0.5rem;
+  font-family: var(--title-font);
+  font-size: var(--h3-font-size);
+  font-weight: var(--font-semi-bold);
+  transition: color 0.3s;
+}
+.nav__logo img {
+  width: 80px;
+}
+.nav__logo:hover {
+  color: var(--first-color);
+}
+.nav__toggle {
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+@media screen and (max-width: 768px) {
+  .nav__menu {
+    position: fixed;
+    top: -100%; /*oculta nav*/
+    left: 0;
+    background-color: var(--body-color);
+    width: 100%;
+    box-shadow: 0 8px 20px hsla(210, 10%, 20%, 0.12);
+
+    padding-block: 3.5rem;
+    transition: top 0.4s;
+  }
+}
+.nav__list {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  row-gap: 2rem;
+}
+.nav__link {
+  color: var(--title-color);
+  font-weight: var(--font-medium);
+  transition: color 0.4s;
+}
+.nav__link:hover {
+  color: var(--first-color);
+}
+.nav__close {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+.nav__img-1,
+.nav__img-2 {
+  position: absolute;
+  opacity: 0.2;
+}
+.nav__img-1 {
+  width: 100px;
+  top: 0.75rem;
+  left: -1rem;
+  transform: rotate(30deg);
+}
+.nav__img-2 {
+  width: 70px;
+  right: -0.2rem;
+  bottom: 0;
+  transform: rotate(-30deg);
+}
+
+/* Show menu */
+.show-menu {
+  top: 0;
+}
+/* Change background header */
+.bg-header {
+  box-shadow: 0 8px 20px hsla(210, 10%, 20%, 0.12);
+}
+
+/* Active link */
+
+/*=============== HOME ===============*/
+.home {
+  position: relative;
+}
+.home__container {
+  row-gap: 3rem;
+  padding-top: 2rem;
+}
+.home__img {
+  width: 300px;
+  justify-self: center;
+  filter: drop-shadow(0 4px 32px hsla(30, 70%, 45%, 0.9)); /*fondo degradado*/
+}
+.home__data {
+  text-align: center;
+}
+.home__title {
+  font-size: var(--biggest-font-size);
+  font-family: var(--title-font);
+  margin-bottom: 1rem;
+}
+.home__title img {
+  width: 40px;
+}
+.home__title div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 0.5rem;
+  padding-inline: 0.5rem;
+}
+.home__description {
+  padding: 0 1rem;
+  margin-bottom: 2.5rem;
+}
+.home__leaf-1,
+.home__leaf-2 {
+  position: absolute;
+  opacity: 0.2;
+}
+.home__leaf-1 {
+  width: 80px;
+  top: 4.5rem;
+  left: -1rem;
+  transform: rotate(45deg);
+}
+.home__leaf-2 {
+  width: 100px;
+  right: -1rem;
+  bottom: 1rem;
+  transform: rotate(-45deg);
+}
+
+/*=============== BUTTON ===============*/
+.button {
+  display: inline-flex;
+  align-items: center;
+  column-gap: 0.5rem;
+  background-color: var(--first-color);
+  padding: 1rem 1.5rem;
+  border-radius: 4rem;
+  color: #fff;
+  font-weight: var(--font-medium);
+  transition: background 0.3s;
+}
+.button i {
+  font-size: 1.5rem;
+  transition: transform 0.3s;
+}
+.button:hover {
+  background-color: var(--first-color-alt);
+}
+.button:hover i {
+  transform: translateX(0.25rem);
+}
+
+/*=============== ABOUT ===============*/
+.about {
+  position: relative;
+}
+.about__container {
+  row-gap: 3rem;
+}
+.about__data {
+  text-align: center;
+}
+.about__title img {
+  width: 30px;
+}
+.about__title div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 0.5rem;
+}
+.about__img {
+  width: 250px;
+  justify-self: center;
+}
+.about__description span {
+  font-size: var(--h1-font-size);
+  font-family: var(--subtitle-font);
+  color: var(--first-color-alt);
+}
+
+/*=============== POPULAR ===============*/
+.popular__container {
+  padding-top: 4rem;
+  grid-template-columns: 250px;
+  justify-content: center;
+  row-gap: 5.5rem;
+}
+.popular__card {
+  position: relative;
+  background-color: var(--container-color);
+  padding: 20rem 2rem 1.5rem;
+  box-shadow: 0 8px 20px hsla(210, 10%, 20%, 0.12);
+  border-radius: 1rem;
+  text-align: start;
+}
+.popular__img {
+  width: 220px;
+  position: absolute;
+  inset: 0;
+  top: -2.5rem;
+  margin: 0 auto;
+  transition: transform 0.4s;
+}
+.popular__name {
+  font-size: var(--h3-font-size);
+  font-family: var(--title-font);
+  margin-bottom: 0.25rem;
+}
+.popular__descripcion {
+  display: block;
+  font-size: var(--smaller-font-size);
+  margin-bottom: 1rem;
+}
+.popular__price {
+  font-size: var(--h3-font-size);
+  font-weight: var(--font-semi-bold);
+  color: var(--first-color);
+}
+.popular__button {
+  display: flex;
+  background-color: var(--first-color);
+  border: none;
+  padding: 0.8rem 0.8rem;
+  border-radius: 4rem;
+  outline: none;
+  color: #fff;
+  font-size: 1rem;
+  box-shadow: 0 4px 20px hsla(19, 64%, 54%, 0.4);
+  column-gap: 0.5rem;
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.popular__button:hover {
+  background-color: var(--first-color-alt);
+}
+.popular__card:hover .popular__img {
+  transform: translateY(-0.3rem);
+}
+
+/*=============== RECENTLY ===============*/
+.recently {
+  position: relative;
+}
+.recently__container {
+  row-gap: 4rem;
+}
+.recently__data {
+  position: relative;
+  text-align: center;
+}
+.recently__description {
+  margin-bottom: 2rem;
+}
+.recently__data-img {
+  width: 30px;
+  position: absolute;
+  top: 4.5rem;
+  right: 1.5rem;
+  transform: rotate(20deg);
+}
+.recently__img {
+  width: 300px;
+  justify-self: center;
+}
+.recently__leaf-1,
+.recently__leaf-2 {
+  position: absolute;
+  opacity: 0.2;
+}
+.recently__leaf-1 {
+  width: 85px;
+  top: 17rem;
+  left: -0.8rem;
+  transform: rotate(15deg);
+}
+.recently__leaf-2 {
+  width: 85px;
+  top: 23rem;
+  right: 0rem;
+  transform: rotate(-15deg);
+}
+
+/*=============== NEWSLETTER ===============*/
+.newsletter__container {
+  position: relative;
+}
+.newsletter__content {
+  position: relative;
+  /* background-image: url("");
+  background-size: cover;        Ajusta la imagen para que cubra todo el contenedor
+  background-position: center;   Centra la imagen 
+  background-repeat: no-repeat;  Evita que se repita la imagen 
+   */
+  background-color: hsl(30, 40%, 20%);
+  border-radius: 2.5rem;
+  padding: 5rem 1rem 3rem;
+  text-align: center;
+  overflow: hidden;
+  margin-bottom: 2rem;
+  opacity: 1;
+}
+.newsletter__img {
+  width: 150px;
+  position: absolute;
+  top: -3rem;
+  left: 0rem;
+  transform: rotate(-60deg);
+}
+.newsletter__data .section__title {
+  color: #fff;
+}
+.newsletter__wallet {
+  width: 50px;
+  position: absolute;
+  bottom: -1rem;
+  right: 1rem;
+  transform: rotate(-30deg);
+}
+
+/*=============== FOOTER ===============*/
+.footer {
+  position: relative;
+  padding-block: 3rem 2rem;
+  overflow: hidden;
+}
+.footer__container {
+  row-gap: 3rem;
+  justify-self: center;
+}
+.footer__logo {
+  display: inline-flex;
+  align-items: center;
+  column-gap: 0.5rem;
+  color: var(--title-color);
+  font-family: var(--title-font);
+  font-size: var(--h3-font-size);
+  font-weight: var(--font-semi-bold);
+  margin-bottom: 1rem;
+  transition: color 0.3s;
+}
+.footer__logo img {
+  width: 80px;
+}
+.footer__logo:hover {
+  color: var(--first-color);
+}
+
+.footer__information,
+.footer__link,
+.footer__description {
+  font-size: var(--small-font-size);
+}
+.footer__content,
+.footer__links {
+  display: grid;
+}
+.footer__content {
+  grid-template-columns: repeat(2, max-content);
+  gap: 2.5rem;
+}
+.footer__content > :last-child {
+  grid-column: 1 / -1; /* Ocupa ambas columnas */
+  justify-self: center; /* Se centra horizontalmente */
+}
+.footer__title {
+  font-size: var(--h3-font-size);
+  margin-bottom: 1rem;
+}
+.footer__links {
+  row-gap: 0.5rem;
+}
+.footer__link {
+  color: var(--text-color);
+  transition: color 0.3s;
+}
+.footer__link:hover {
+  color: var(--first-color);
+}
+/* -----footer_social--- */
+.footer__social {
+  display: flex;
+  column-gap: 1.2rem;
+  justify-content: center;
+}
+.footer__social-link {
+  color: var(--first-color);
+  font-size: 1.25rem;
+  transition: color 0.3s, transform 0.3s;
+}
+.footer__social-link:hover {
+  color: var(--first-color-alt);
+  transform: translateY(-2px);
+}
+/* metodo de pago y copy */
+.footer__info,
+.footer__card {
+  display: flex;
+}
+.footer__info {
+  margin-top: 3.5rem;
+  flex-direction: column;
+  row-gap: 1.5rem;
+}
+.footer__info .footer__title {
+  text-align: center;
+  margin-bottom: 0px;
+}
+.footer__card {
+  column-gap: 1rem;
+  justify-content: center;
+}
+.footer__card img {
+  width: 45px;
+}
+.footer__copy {
+  text-align: center;
+  font-size: var(--smaller-font-size);
+  color: var(--text-color-light);
+}
+/*=============== SCROLL BAR ===============*/
+
+/*=============== SCROLL UP ===============*/
+
+/*=============== whatsappP ===============*/
+@keyframes saltar {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* ----------------------------------------------
+  Generated by AnimatiSS
+  Licensed under FreeBSD License
+  URL: https://xsgames.co/animatiss
+  Twitter: @xsgames_
+---------------------------------------------- */
+
+.scale-up-center {
+  animation: scale-up-center 0.4s;
+}
+@keyframes scale-up-center {
+  0% {
+    transform: scale(0.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.whatsapp-button {
+  position: fixed;
+  bottom: 3.5rem;
+  right: 0.7rem;
+  background-color: var(--container-color);
+  box-shadow: 0 4px 12px hsla(210, 10%, 20%, 0.12);
+  display: inline-flex;
+  padding: 0.2rem;
+  border-radius: 50%;
+  font-size: 2.5rem;
+  color: #25d366;
+  z-index: 1000;
+  transition: transform 0.3s ease;
+
+  /* Animación salto */
+  animation: saltar 1.5s infinite ease-in-out;
+}
+
+.whatsapp-button:hover {
+  transform: scale(1.1);
+  /* Para que el hover no se "pierda" por la animación, pausa la animación */
+}
+
+/* Show Scroll Up*/
+
+/*=============== BREAKPOINTS ===============*/
+/* For small devices */
+
+/* For medium devices */
+
+/* For large devices */
